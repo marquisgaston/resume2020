@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
 import main from './main';
+import resumeData from './resumeData';
 
 const rootReducer = combineReducers({
-    main
+    main,
+    resumeData
 });
 
 export default rootReducer;

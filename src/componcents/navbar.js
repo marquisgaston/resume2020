@@ -30,7 +30,7 @@ class NavbarComponent extends Component {
       }
 
      renderSearchBar = () => {
-          if(this.props.currentPage !== "homepage") {
+          if(this.props.main.currentPage !== "homepage") {
                return (
                     <Form inline >
                          <FormControl name="searchText" value={this.state.searchText} onChange={this.handleChange} type="text" placeholder="Search" className="mr-sm-2" />
@@ -41,7 +41,7 @@ class NavbarComponent extends Component {
      }
 
      renderMainNav = () => {
-          if(this.props.currentPage !== "homepage") {
+          if(this.props.main.currentPage !== "homepage") {
                return (
                     <Nav className="mr-auto">
                          <Nav.Link onClick={() => {history.push('/')}}>Home</Nav.Link>
@@ -74,7 +74,7 @@ class NavbarComponent extends Component {
      }
 
      renderName = () => {
-          if (this.props.currentPage !== "homepage") {
+          if (this.props.main.currentPage !== "homepage") {
                return (
                     <Navbar.Brand href="#home">Marquis J Gaston</Navbar.Brand>
                )
@@ -97,7 +97,7 @@ class NavbarComponent extends Component {
      }
 }
 function mapStateToProps (state) {
-     return state.main
+     return state
 }
 
 NavbarComponent = connect(mapStateToProps, actions)(NavbarComponent)

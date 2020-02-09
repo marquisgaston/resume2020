@@ -34,13 +34,56 @@ class Homepage extends Component {
         }
     }
 
+    renderQuickLinks = () => {
+        const quickLinks = [
+            {
+                title: "Profile",
+                url: "/profile",
+                icon: "fas fa-portrait"
+            },
+            {
+                title: "My Captone Project",
+                url: "https://minnmax.netlify.com/",
+                icon: "fab fa-napster"
+            },
+            {
+                title: "My School",
+                url: "https://www.bottega.tech",
+                icon: "fas fa-graduation-cap"
+            },
+            {
+                title: "My Resume",
+                url: "https://docs.google.com/document/d/1mWRqgDd30Er4ZvEvIrX7WlwzHiVGRfxAjRn5PNY99FY",
+                icon: "fab fa-google-drive"
+            },
+            {
+                title: "My Projects",
+                url: "/projects",
+                icon: "fas fa-keyboard"
+            },
+        ]
+
+        return (
+            quickLinks.map(item => {
+                return (
+                    <a className="quick-link-wrapper" href={item.url}>
+                        <div className="quick-link" >
+                        <i class={item.icon}></i>
+                        <h5>{item.title}</h5>
+                        </div>
+                    </a>
+                )
+            })
+        )
+    }
+
     renderQuickSearch = () => {
         if (this.state.searchText.length > 0){
             const one = this.state.searchText.toLowerCase().split("")
             const newList = []
             const newList2 =[]
 
-            this.list.map(item =>{
+            this.props.resumeData.resumeItems.map(item =>{
                 if (newList.includes(item)){
                     return
                 } else {
@@ -83,47 +126,56 @@ class Homepage extends Component {
                     })}
                     {newList2.map(item => {
                         return (
-                            <div>
-                                {item.title}
+                            <div className="quick-search-item">
+                                <a className="quick-search-link" href={`https://www.${item.url}`}>
+                                <div className="title">
+                                    {item.title}
+                                </div>
+                                {item.subTitle ? <div className="sub-title">
+                                    {item.subTitle}
+                                </div> : null}
+                                {item.url ? <div className="url">
+                                    {item.url}
+                                </div> : null}                                
+                                </a>
                             </div>
                         )
                     })}
                 </div>
             )
         } else {
-            return
+            return (
+                <div className="quick-links" style={{display: "grid", justifyContent: "center", alignItems: "center", minHeight: "100%", maxHeight: "inherit", padding: "1em"}}>
+                    <a className="quick-link-wrapper" href="https://www.github.com/marquisgaston">
+                        <div className="quick-link" >
+                        <i class="fab fa-github"></i>
+                        <h5>My Github</h5>
+                        </div>
+                    </a>
+                    <a className="quick-link-wrapper" href="https://www.linkedin.com/in/marquisgaston">
+                        <div className="quick-link" >
+                        <i class="fab fa-linkedin"></i>
+                        <h5>My LinkedIn</h5>
+                        </div>
+                    </a>
+                    {this.renderQuickLinks()}
+                </div>
+            )
         }
     }
-
-    list = [
-        {
-            title: "Github",
-            subTitle: "My Github Page",
-            url: "github.com/marquisgaston"
-        },
-        {
-            title: "React"
-        },
-        {
-            title: "Node.JS"
-        },
-        {
-            title: "Python"
-        },
-    ];
 
     render() { 
         
         return ( 
            <div className="homepage">
-                <div style ={{ display: "grid", justifyContent: "center", alignContent: "center", marginTop: "3.5em", color: "white", backgroundImage: "https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg?cs=srgb&dl=photo-of-person-typing-on-computer-keyboard-735911.jpg&fm=jpg"}} >
+                <div className="content-wrapper" style ={{ display: "grid", justifyContent: "center", alignContent: "center", marginTop: "3.5em", color: "white", backgroundImage: "https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg?cs=srgb&dl=photo-of-person-typing-on-computer-keyboard-735911.jpg&fm=jpg"}} >
                <i style={{marginBottom: "1em"}} class="fab fa-monero"></i>                
                 <div className="main-title display-4">I'm Marquis Gaston!</div>
                 <p style={{marginBottom: "2em"}} class="lead">I'm your next Full-Stack/Front-End/Back-End Developer based out of NW Ohio/Toledo</p>
                 
                 <h3>Try typing a keyword to see what I can do for you!</h3>
                 <Carousel className="skill-carousel" style={{margin: ".5em 0"}}>
-                    {this.list.map(item => {
+                    {this.props.resumeData.resumeItems.map(item => {
                         return (
                             <Carousel.Item key={item}>
                                 {item.title}
@@ -150,7 +202,7 @@ class Homepage extends Component {
     }
 }
 function mapStateToProps (state) {
-    return state.main
+    return state
 }
 
 Homepage = connect(mapStateToProps, actions)(Homepage)

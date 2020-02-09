@@ -66,12 +66,22 @@
 
   .quick-search-wrapper {
     min-height: 10em;
-    max-height: 10em;
+    width: 800px;
+    max-width: 100vw;
+
+    @media only screen and (max-width: 411px){
+      min-height: 5em;
+    }
 
     .quick-search {
       background-color: white;
       color: $bg-color;
       width: 87.5%;
+
+      @media only screen and (max-width: 411px){
+        margin-left: .9em;
+        width: 96vw;
+      }
 
       .quick-search-item {
         position: relative;
@@ -92,9 +102,30 @@
         }
        }
       }
+    }
+    .quick-links {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: .5em;
+      margin-top: .5em;
 
+      a:link, a:visited {
+        color: white;
+      }
+
+      .quick-link-wrapper {
+        text-decoration: none;
+        color: white;
+
+        @media only screen and (max-width: 411px){
+          h5 {
+            display: none;
+          }
+        }
+
+      }
     }
   }
+
 }
 
 .card-center {
