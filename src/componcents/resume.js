@@ -3,8 +3,8 @@ import { Router, Switch, Route } from 'react-router';
 import Homepage from './homepage';
 import NavbarComponent from './navbar';
 import history from '../history';
-import Footer from './footer';
 import SearchPage from './searchPage';
+import NoMatch from './noMatch';
 
 class Resume extends Component {
     
@@ -15,7 +15,8 @@ class Resume extends Component {
                     <NavbarComponent/>
                     <Switch>
                         <Route path='/' exact component={Homepage}/>
-                        <Route path="/search" component={SearchPage}/>
+                        <Route path="/search" exact component={SearchPage}/>
+                        <Route component={NoMatch}/>
                     </Switch>
                 </Router>
             </div>

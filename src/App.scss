@@ -70,7 +70,7 @@
     max-width: 100vw;
 
     @media only screen and (max-width: 411px){
-      min-height: 11em;
+      min-height: 12em;
     }
 
     .quick-search {
@@ -121,7 +121,7 @@
 
         @media only screen and (max-width: 411px){
           h5 {
-            display: none;
+            font-size: .8em;
           }
         }
 
@@ -149,6 +149,13 @@
 
 .navbar {
   background-color: $bg-color;
+
+  .navbar-search {
+    background-color: $main-blue;
+    &:hover {
+      background-color: darkblue;
+    }
+  }
 }
 
 .mr-sm-3 {

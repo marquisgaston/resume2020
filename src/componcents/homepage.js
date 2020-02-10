@@ -28,7 +28,7 @@ class Homepage extends Component {
     handleClick = () => {
         if (this.state.searchText !== null && this.state.searchText.length > 0){
             this.props.setSearchTerm(this.state.searchText);
-            history.push('/search')
+            history.push(`/search`)
         } else {
             return
         }
@@ -79,31 +79,26 @@ class Homepage extends Component {
 
     renderQuickSearch = () => {
         if (this.state.searchText.length > 0){
-            const one = this.state.searchText.toLowerCase().split("")
             const newList = []
             const newList2 = []
             const newList3 = []
 
             this.props.resumeData.resumeItems.map(item =>{
                 if (newList.includes(item)){
-                    return
                 } else {
-
                     item.keyWords.filter(keyWord => {
                         if (this.state.searchText.toLowerCase() === keyWord && item.title.toLowerCase().includes(this.state.searchText.toLowerCase())){
                             if (newList.includes(item) | newList.includes(item) | newList3.includes(item)){
-                                return
                             } else {
                                 newList.push(item)
                             }
                         } else {
-                            return 
                         }
+                        return newList
                     })
 
                     if (item.title.toLowerCase().includes(this.state.searchText.toLowerCase())){
                         if (newList.includes(item)) {
-                            return
                         } else {
                             newList.push(item)
                         }
@@ -112,13 +107,13 @@ class Homepage extends Component {
                     item.keyWords.filter(keyWord => {
                         if (this.state.searchText.toLowerCase() === keyWord){
                             if (newList2.includes(item) | newList.includes(item) | newList3.includes(item)){
-                                return
                             } else {
                                 newList2.push(item)
                             }
                         } else {
-                            return 
                         }
+                        
+                        return newList
                     })
 
                     //  one.filter(listItem => {
@@ -131,6 +126,7 @@ class Homepage extends Component {
                     // }})
 
                 }
+                return newList
             })
 
             return (
@@ -139,7 +135,7 @@ class Homepage extends Component {
                         console.log("item", item)
                         return (
                             <div className="quick-search-item">
-                                <a className="quick-search-link" href={`${item.url}`}>
+                                <a className="quick-search-link" href={item.url ? item.url : item.localUrl}>
                                 <div className="title">
                                     {item.title}
                                 </div>

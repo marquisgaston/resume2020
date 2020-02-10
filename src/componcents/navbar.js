@@ -33,8 +33,8 @@ class NavbarComponent extends Component {
           if(this.props.main.currentPage !== "homepage") {
                return (
                     <Form inline >
-                         <FormControl name="searchText" value={this.state.searchText} onChange={this.handleChange} type="text" placeholder="Search" className="mr-sm-2" />
-                         <Button variant="outline-success" onClick={this.handleClick}>Search</Button>
+                         <FormControl name="searchText" value={this.state.searchText} onChange={this.handleChange} type="text" placeholder={this.props.main.searchTerm ? this.props.main.searchTerm : "Search"} className="mr-sm-2" />
+                         <Button variant="outline-success navbar-search" onClick={this.handleClick} style={{color: "white", borderColor: "white"}}>Search</Button>
                     </Form>
                )
           }

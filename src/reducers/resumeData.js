@@ -7,25 +7,30 @@ const INITIAL_STATE = {
             title: "Github",
             subTitle: "My Github Page",
             url: "https://www.github.com/marquisgaston",
-            keyWords: ["github", "projects","code", "coding"]
+            keyWords: ["github", "projects","code", "coding"],
+            class: "link"
         },
         {
             title: "LinkedIn",
             subTitle: "My Linkedin Profile",
             url: "https://www.linkedin.com/in/marguisgaston",
-            keyWords: ["linkedin", "linked","in", "linked-in"]
+            keyWords: ["linkedin", "linked","in", "linked-in"],
+            class: "link"
         },
         {
             title: "Capstone Project",
             subTitle: "My Capstone Project",
             url: "https://minnmax.netlify.com",
-            keyWords: ["projects","code", "coding", "capstone", "my capstone", "project"]
+            keyWords: ["projects","code", "coding", "capstone", "my capstone", "project"],
+            class: "link"
         },
+        
         {
-            title: "Python",
-            subTitle: "My Github Page",
-            url: "github.com/marquisgaston",
-            keyWords: ["github", "projects","code", "coding"]
+            title: "Capstone Project Info",
+            subTitle: "My Capstone Project info",
+            localUrl: "/capstone",
+            keyWords: ["project", "projects","code", "coding", "capstone", "minnnmax", "bottega", "react", "javascript", "node", "nodejs", "node.js"],
+            class: "project"
         },
     ]
 }
