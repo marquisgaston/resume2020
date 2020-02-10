@@ -10,48 +10,91 @@ class SearchPage extends Component {
         this.props.setCurrentPage("search");
     }
     render() { 
-        const list = ["github", "react", "python", "node", "node.js", "node js"]
 
         const renderContent = () => {
             const newList = []
             const newList2 =[]
-            if (list.includes(this.props.searchTerm)){
-                this.props.resume.Data.resumeItems.map(item =>{
-                    if (newList.includes(item)){
-                        return
+            this.props.resumeData.resumeItems.map(item => {
+                if (this.props.main.searchTerm === null)
+                 {
+                    if (newList.includes("no search term was entered")){
+                        return 
                     } else {
-    
-                        if (item.title.toLowerCase().includes(this.state.searchText.toLowerCase())){
-                            newList.push(item)
+                        newList.push("no search term was entered")
+                        return
+                    }
+                } else 
+                if (newList.includes(item)){
+                    return
+                } else
+                item.keyWords.filter(keyWord => {
+                    if (item.title === this.props.main.searchTerm && this.props.main.searchTerm === keyWord){
+                        if (newList.includes(item)){
+                            return 
                         } else {
+                            newList.push(item)
                             return
                         }
-                        
-                        
-                    if (this.state.searchTerm !== null){
-                        const one = this.state.searchText.toLowerCase().split("")
-                         one.filter(listItem => {
-                            if (item.title.includes(listItem)){
-                                if (newList2.includes(item) | newList.includes(item)){
-                                    return
-                                } else {
-                                    newList2.push(item)
-                                }
-                        }})
-                    } else {
-                        return
+                    } 
+                    if (item.title.includes(this.props.main.searchTerm) && this.props.main.searchTerm === keyWord){
+                        if (newList.includes(item)){
+                            return 
+                        } else {
+                            newList.push(item)
+                            return
+                        }
                     }
-    
+                    if (this.props.main.searchTerm === keyWord){
+                        if (newList.includes(item)){
+                            return 
+                        } else {
+                            newList.push(item)
+                            return
+                        }
                     }
                 })
-            } else {
-                return
-            }
+                if (this.props.main.searchTerm === item.title){
+                    if (newList.includes(item)){
+                        return 
+                    } else {
+                        newList.push(item)
+                        return
+                    }
+                } 
+                else 
+                if (item.title.includes(this.props.main.searchTerm)){
+                    if (newList.includes(item)){
+                        return 
+                    } else {
+                        newList.push(item)
+                        return
+                    }
+                } 
+                else 
+                {
+                    if (newList.includes("your search returned no results")){
+                        return 
+                    } else {
+                        newList.push("your search returned no results")
+                        return
+                    }
+                }
+            })
+
+            return (
+                <div>
+                    {newList.map(item => {
+                    return item.title
+                })}
+                </div>
+            )
         }
         return ( 
-            <div style={{color: "white", marginTop: "3em",display: "flex", justifyContent: "center"}}>
-                <div style={{display: "flex", maxWidth: "90vw", justifyContent: "center", alignItems: "center"}}>Search Term: {this.props.main.searchTerm ? this.props.main.                                                                                                searchTerm : null}</div>
-                {renderContent()} 
+            <div style={{color: "white", marginTop: "3em",display: "grid", justifyContent: "center"}}>
+                <div style={{display: "flex", maxWidth: "90vw", justifyContent: "center", alignItems: "center"}}>Search Term: {this.props.main.searchTerm ? this.props.main.searchTerm : null}</div>
+                <div className="search-page-results">
+                    {renderContent()}
+                </div>
             </div>
          );
     }

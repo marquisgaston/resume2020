@@ -81,25 +81,54 @@ class Homepage extends Component {
         if (this.state.searchText.length > 0){
             const one = this.state.searchText.toLowerCase().split("")
             const newList = []
-            const newList2 =[]
+            const newList2 = []
+            const newList3 = []
 
             this.props.resumeData.resumeItems.map(item =>{
                 if (newList.includes(item)){
                     return
                 } else {
 
+                    item.keyWords.filter(keyWord => {
+                        if (this.state.searchText.toLowerCase() === keyWord && item.title.toLowerCase().includes(this.state.searchText.toLowerCase())){
+                            if (newList.includes(item) | newList.includes(item) | newList3.includes(item)){
+                                return
+                            } else {
+                                newList.push(item)
+                            }
+                        } else {
+                            return 
+                        }
+                    })
+
                     if (item.title.toLowerCase().includes(this.state.searchText.toLowerCase())){
-                        newList.push(item)
+                        if (newList.includes(item)) {
+                            return
+                        } else {
+                            newList.push(item)
+                        }
                     }
 
-                     one.filter(listItem => {
-                        if (item.title.includes(listItem)){
-                            if (newList2.includes(item) | newList.includes(item)){
+                    item.keyWords.filter(keyWord => {
+                        if (this.state.searchText.toLowerCase() === keyWord){
+                            if (newList2.includes(item) | newList.includes(item) | newList3.includes(item)){
                                 return
                             } else {
                                 newList2.push(item)
                             }
-                    }})
+                        } else {
+                            return 
+                        }
+                    })
+
+                    //  one.filter(listItem => {
+                    //     if (item.title.includes(listItem)){
+                    //         if (newList3.includes(item) | newList.includes(item) | newList2.includes(item)){
+                    //             return
+                    //         } else {
+                    //             newList3.push(item)
+                    //         }
+                    // }})
 
                 }
             })
@@ -110,7 +139,7 @@ class Homepage extends Component {
                         console.log("item", item)
                         return (
                             <div className="quick-search-item">
-                                <a className="quick-search-link" href={`https://www.${item.url}`}>
+                                <a className="quick-search-link" href={`${item.url}`}>
                                 <div className="title">
                                     {item.title}
                                 </div>
@@ -125,9 +154,27 @@ class Homepage extends Component {
                         )
                     })}
                     {newList2.map(item => {
+                        console.log("item", item)
                         return (
                             <div className="quick-search-item">
-                                <a className="quick-search-link" href={`https://www.${item.url}`}>
+                                <a className="quick-search-link" href={`${item.url}`}>
+                                <div className="title">
+                                    {item.title}
+                                </div>
+                                {item.subTitle ? <div className="sub-title">
+                                    {item.subTitle}
+                                </div> : null}
+                                {item.url ? <div className="url">
+                                    {item.url}
+                                </div> : null}                                
+                                </a>
+                            </div>
+                        )
+                    })}
+                    {newList3.map(item => {
+                        return (
+                            <div className="quick-search-item">
+                                <a className="quick-search-link" href={`${item.url}`}>
                                 <div className="title">
                                     {item.title}
                                 </div>
@@ -170,8 +217,8 @@ class Homepage extends Component {
            <div className="homepage">
                 <div className="content-wrapper" style ={{ display: "grid", justifyContent: "center", alignContent: "center", marginTop: "3.5em", color: "white", backgroundImage: "https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg?cs=srgb&dl=photo-of-person-typing-on-computer-keyboard-735911.jpg&fm=jpg"}} >
                <i style={{marginBottom: "1em"}} class="fab fa-monero"></i>                
-                <div className="main-title display-4">I'm Marquis Gaston!</div>
-                <p style={{marginBottom: "2em"}} class="lead">I'm your next Full-Stack/Front-End/Back-End Developer based out of NW Ohio/Toledo</p>
+                <div className="main-title display-4" style={{marginBottom: "1em"}}>Hi... I'm Marquis Gaston!</div>
+                {/* <p style={{marginBottom: "2em"}} class="lead">I'm your next Full-Stack/Front-End/Back-End Developer based out of NW Ohio/Toledo</p> */}
                 
                 <h3>Try typing a keyword to see what I can do for you!</h3>
                 <Carousel className="skill-carousel" style={{margin: ".5em 0"}}>
@@ -190,8 +237,8 @@ class Homepage extends Component {
                 <div className="quick-search-wrapper">
                     {this.renderQuickSearch()}
                 </div>
-                <p>Or...</p>
-                <p>Scroll down to learn more About Me...</p>
+                <p style={{fontSize: ".6em"}}>Or...</p>
+                <p style={{fontSize: ".6em"}}>Scroll down to learn more About Me...</p>
                 <i class="fas fa-chevron-down"></i>
             </div>
             

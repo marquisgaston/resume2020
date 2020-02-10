@@ -45,11 +45,11 @@ class NavbarComponent extends Component {
                return (
                     <Nav className="mr-auto">
                          <Nav.Link onClick={() => {history.push('/')}}>Home</Nav.Link>
-                         <Nav.Link href="#link">Link</Nav.Link>
+                         <Nav.Link href="#link">Profile</Nav.Link>
                          <NavDropdown title="Contact" id="basic-nav-dropdown">
-                         <NavDropdown.Item ><i class="fas fa-envelope"></i> MarquisGaston23@gmail.com</NavDropdown.Item>
-                         <NavDropdown.Item ><i class="fas fa-phone-square-alt"></i> 5673433654</NavDropdown.Item>
-                         <NavDropdown.Item href="https://www.linkedin.com/in/marquisgaston"><i class="fab fa-linkedin"></i> Linkedin</NavDropdown.Item>
+                              <NavDropdown.Item ><i class="fas fa-envelope"></i> MarquisGaston23@gmail.com</NavDropdown.Item>
+                              <NavDropdown.Item ><i class="fas fa-phone-square-alt"></i> 5673433654</NavDropdown.Item>
+                              <NavDropdown.Item href="https://www.linkedin.com/in/marquisgaston"><i class="fab fa-linkedin"></i> Linkedin</NavDropdown.Item>
                          <NavDropdown.Divider />
                          {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                          </NavDropdown>
@@ -60,11 +60,11 @@ class NavbarComponent extends Component {
                return (
                     <Nav className="mr-auto">
                          {/* <Nav.Link href="#home">Home</Nav.Link> */}
-                         <Nav.Link href="#link">Link</Nav.Link>
+                         <Nav.Link href="#link">Profile</Nav.Link>
                          <NavDropdown title="Contact" id="basic-nav-dropdown">
-                         <NavDropdown.Item ><i class="fas fa-envelope"></i> MarquisGaston23@gmail.com</NavDropdown.Item>
-                         <NavDropdown.Item ><i class="fas fa-phone-square-alt"></i> 5673433654</NavDropdown.Item>
-                         <NavDropdown.Item href="https://www.linkedin.com/in/marquisgaston"><i class="fab fa-linkedin"></i> Linkedin</NavDropdown.Item>
+                              <NavDropdown.Item ><i class="fas fa-envelope"></i> MarquisGaston23@gmail.com</NavDropdown.Item>
+                              <NavDropdown.Item ><i class="fas fa-phone-square-alt"></i> 5673433654</NavDropdown.Item>
+                              <NavDropdown.Item href="https://www.linkedin.com/in/marquisgaston"><i class="fab fa-linkedin"></i> Linkedin</NavDropdown.Item>
                          <NavDropdown.Divider />
                          {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                          </NavDropdown>
@@ -89,8 +89,8 @@ class NavbarComponent extends Component {
                          <Navbar.Toggle aria-controls="basic-navbar-nav" />
                          <Navbar.Collapse id="basic-navbar-nav">
                          {this.renderMainNav()}
-                         </Navbar.Collapse>
                          {this.renderSearchBar()}
+                         </Navbar.Collapse>
                     </Navbar>
                </div>
           )

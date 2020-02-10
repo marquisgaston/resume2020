@@ -6,16 +6,26 @@ const INITIAL_STATE = {
         {
             title: "Github",
             subTitle: "My Github Page",
-            url: "github.com/marquisgaston"
+            url: "https://www.github.com/marquisgaston",
+            keyWords: ["github", "projects","code", "coding"]
         },
         {
-            title: "React"
+            title: "LinkedIn",
+            subTitle: "My Linkedin Profile",
+            url: "https://www.linkedin.com/in/marguisgaston",
+            keyWords: ["linkedin", "linked","in", "linked-in"]
         },
         {
-            title: "Node.JS"
+            title: "Capstone Project",
+            subTitle: "My Capstone Project",
+            url: "https://minnmax.netlify.com",
+            keyWords: ["projects","code", "coding", "capstone", "my capstone", "project"]
         },
         {
-            title: "Python"
+            title: "Python",
+            subTitle: "My Github Page",
+            url: "github.com/marquisgaston",
+            keyWords: ["github", "projects","code", "coding"]
         },
     ]
 }
