@@ -208,6 +208,7 @@ class Homepage extends Component {
     }
 
     render() { 
+        const list = ["LinkedIn", "Github", "Bottega", "Project", "Capstone", "Netlify"]
         
         return ( 
            <div className="homepage">
@@ -218,10 +219,10 @@ class Homepage extends Component {
                 
                 <h3>Try typing a keyword to see what I can do for you!</h3>
                 <Carousel className="skill-carousel" style={{margin: ".5em 0"}}>
-                    {this.props.resumeData.resumeItems.map(item => {
+                    {list.map(item => {
                         return (
                             <Carousel.Item key={item}>
-                                {item.title}
+                                {item}
                             </Carousel.Item>
                         )
                     })}
