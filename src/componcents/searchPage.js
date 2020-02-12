@@ -10,7 +10,7 @@ class SearchPage extends Component {
 
     componentDidMount() {
         this.props.setCurrentPage("search");
-        this.props.setSearchTerm("Github");
+        this.props.setSearchTerm("all");
     }
     
     renderList(itemList, count){
@@ -20,20 +20,25 @@ class SearchPage extends Component {
                 {count <=0 ? null : itemList.map(item => {  
                 if (item.title) {
                     return (
-                        <Card key={item.title + item.class} class={item.class} style={{color: "black", display: "grid"}}>
-                            <div className="title">
-                                 {item.title}
-                            </div>
-                            {item.subTitle ? <div className="sub-title">
-                                 {item.subTitle}
-                            </div>: null}
-                            {item.url ? <div className="url">
-                                 {item.url}
-                            </div> : 
-                            <div className="url">
-                                {item.localUrl}
-                            </div>}
-                        </Card>
+                        <a key={item.title + item.class} className={item.class} href={item.url} style={{color: "black", textDecoration: "none"}}>
+                            <Card >
+                                {item.imageUrl ? <img src={item.imageUrl} alt="no show" /> : null }
+                                <div className="card-content">
+                                <div className="title">
+                                    <h3>{item.title}</h3>{item.icon ? <i class={item.icon}></i> : null}
+                                </div>
+                                {item.subTitle ? <div className="sub-title">
+                                    {item.subTitle}
+                                </div>: null}
+                                {item.url ? <div className="url">
+                                    {item.url}
+                                </div> : 
+                                <div className="url">
+                                    {item.localUrl}
+                                </div>}
+                                </div>
+                            </Card>
+                        </a>
                     )
                 } else {
                     return item
@@ -59,6 +64,15 @@ class SearchPage extends Component {
                         newList.push("no search term was entered")
                     }
                 } else 
+                if (this.props.main.searchTerm.toLowerCase() === "all") {
+                    this.props.resumeData.resumeItems.map(item => {
+                        if (newList.includes(item) | newList2.includes(item) | newList3.includes(item) | newList4.includes(item) | newList5.includes(item)){
+                        } else {
+                            newList2.push(item)
+                        }
+                        return newList
+                    })
+                } else
                 if (newList.includes(item) | newList2.includes(item) | newList3.includes(item) | newList4.includes(item) | newList5.includes(item)){
                 } else
                 if (this.props.main.searchTerm === item.title){
@@ -120,7 +134,7 @@ class SearchPage extends Component {
             }
         }
         return ( 
-            <div style={{color: "white", marginTop: "3em",display: "grid", justifyContent: "center"}}>
+            <div className="search-page" style={{color: "white", marginTop: "3em",display: "grid", justifyContent: "center"}}>
                 <div style={{display: "flex", maxWidth: "90vw", justifyContent: "center", alignItems: "center"}}>Search Term: {this.props.main.searchTerm ? this.props.main.searchTerm : null}</div>
                 <div className="search-page-results">
                     {renderContent()}
