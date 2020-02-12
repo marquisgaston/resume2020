@@ -6,7 +6,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Projects from './projects';
+
+import SearchTab from './searchTab';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function OtherTabs() {
+export default function Hometabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -54,22 +55,18 @@ export default function OtherTabs() {
   };
 
   return (
-    <div className={classes.root} style={{marginTop: "6em", color: "black"}}>
+    <div className={classes.root} style={{marginTop: "2em", color: "black"}}>
       <AppBar position="static" style={{padding: "0 1em"}}>
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-          <Tab label="Projects" {...a11yProps(0)} />
-          <Tab label="Skills" {...a11yProps(1)} />
-          <Tab label="Misc..." {...a11yProps(2)} />
+          <Tab label="Featured" {...a11yProps(0)} />
+          <Tab label="Search" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Projects/>
+        
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
+        <SearchTab/>
       </TabPanel>
     </div>
   );
