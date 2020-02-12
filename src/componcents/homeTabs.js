@@ -62,10 +62,10 @@ export default function Hometabs() {
           <Tab label="Search" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={0} style={{display: "flex", justifyContent: "center"}}>
         
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={1} style={{display: "flex", justifyContent: "center"}}>
         <SearchTab/>
       </TabPanel>
     </div>

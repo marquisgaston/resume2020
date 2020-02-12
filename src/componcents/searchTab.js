@@ -202,7 +202,8 @@ class SearchTab extends Component {
         }
     }
 
-    render() { 
+    render() {
+        
         
         return ( 
            <div className="SearchTab">
