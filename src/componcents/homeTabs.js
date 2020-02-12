@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import SearchTab from './searchTab';
-import MuiCard from './muiCard';
 
 import '../variables.scss';
 
@@ -65,10 +64,10 @@ export default function Hometabs() {
           <Tab label="Search" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={0}>
        
       </TabPanel>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={1}>
         <SearchTab/>
       </TabPanel>
     </div>
