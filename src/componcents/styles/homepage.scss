@@ -1,0 +1,126 @@
+.homepage {
+
+    .hometabs {
+        margin-top: 2em;
+
+        @media only screen and (max-width: 1024px){
+            margin-top: 2em;
+          }
+
+        @media only screen and (max-width: 411px){
+            margin-top: 2.8em;
+          }
+
+        .SearchTab {
+
+          .content-wrapper {
+            
+            @media only screen and (min-width: 412px){
+              margin-top: 5em;
+            }
+
+            .carousel-item {
+              font-size: 1.4em;
+            }
+          }
+
+            .main-title {
+              font-family: 'Righteous', cursive;
+            
+              @media only screen and (max-width: 411px){
+                font-size: 1.5em;
+              }
+            }
+          
+            p {
+          
+              @media only screen and (max-width: 411px){
+                font-size: .8em;
+                padding: 0 2em;
+              }
+            }
+          
+            .search-wrapper {
+          
+              @media only screen and (max-width: 411px) {
+              }
+            }
+          
+            .quick-search-wrapper {
+              min-height: 20em;
+              width: 800px;
+              max-width: 100vw;
+          
+              @media only screen and (max-width: 411px){
+                min-height: 12em;
+              }
+          
+              .quick-search {
+                background-color: white;
+                color: $bg-color;
+                width: 87.5%;
+          
+                @media only screen and (max-width: 411px){
+                  margin-left: .9em;
+                  width: 96vw;
+                }
+          
+                .quick-search-item {
+                  position: relative;
+                  z-index: 99;
+          
+                 .quick-search-link {
+                  display: flex;
+                  justify-content: space-around;
+                  align-items: center;
+          
+                  .title {
+                    font-size: 1.2em;
+                  }
+          
+                  .sub-title {
+                    font-size: .9em;
+                  }
+          
+                  .url {
+                    font-size: .7em;
+                  }
+                 }
+                }
+              }
+              .quick-links {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-gap: .5em;
+                margin-top: 3em;
+                margin-bottom: 10em;
+
+                @media only screen and (max-width: 411px){
+                  margin-top: 0;
+                  margin-bottom: 1em;
+                }
+
+          
+                a:link, a:visited {
+                  color: white;
+                }
+          
+                .quick-link-wrapper {
+                  text-decoration: none;
+                  color: white;
+
+                  font-size: 2em;
+          
+                  @media only screen and (max-width: 411px){
+                    h5 {
+                      font-size: .45em;
+                    }
+                  }
+          
+                }
+              }
+            }
+          
+          }
+
+    }
+}

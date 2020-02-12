@@ -8,6 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import SearchTab from './searchTab';
+import MuiCard from './muiCard';
+
+import '../variables.scss';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -55,17 +58,17 @@ export default function Hometabs() {
   };
 
   return (
-    <div className={classes.root} style={{marginTop: "2em", color: "black"}}>
-      <AppBar position="static" style={{padding: "0 1em"}}>
-        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+    <div className={`${classes.root} hometabs`} style={{minHeight: "90vh", backgroundColor: "#282c34"}}>
+      <AppBar position="static" style={{backgroundColor: "#282c60", padding: "0 1em"}}>
+        <Tabs value={value} onChange={handleChange} indicatorColor="primary" aria-label="simple tabs example">
           <Tab label="Featured" {...a11yProps(0)} />
           <Tab label="Search" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0} style={{display: "flex", justifyContent: "center"}}>
-        
+      <TabPanel value={value} index={1}>
+       
       </TabPanel>
-      <TabPanel value={value} index={1} style={{display: "flex", justifyContent: "center"}}>
+      <TabPanel value={value} index={0}>
         <SearchTab/>
       </TabPanel>
     </div>

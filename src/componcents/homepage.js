@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
 
 import Hometabs from './homeTabs';
-import MuiCard from './muiCard';
 import OtherTabs from './tabs';
+
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class Homepage extends Component {
     state = {  }
+
+    componentDidMount() {
+        this.props.setCurrentPage("homepage");
+    }
     render() { 
         return ( 
             <div className="homepage">
                 <Hometabs/>
-                <MuiCard/>
                 <OtherTabs/>
 
             </div>
          );
     }
 }
+function mapStateToProps (state) {
+    return state
+}
+
+Homepage = connect(mapStateToProps, actions)(Homepage)
  
 export default Homepage;

@@ -54,9 +54,9 @@ export default function OtherTabs() {
   };
 
   return (
-    <div className={classes.root} style={{marginTop: "6em", color: "black"}}>
-      <AppBar position="static" style={{padding: "0 1em"}}>
-        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+    <div className={classes.root} style={{color: "black"}}>
+      <AppBar position="static" style={{backgroundColor: "#282c60", padding: "0 1em"}}>
+        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" indicatorColor="primary">
           <Tab label="Projects" {...a11yProps(0)} />
           <Tab label="Skills" {...a11yProps(1)} />
           <Tab label="Misc..." {...a11yProps(2)} />

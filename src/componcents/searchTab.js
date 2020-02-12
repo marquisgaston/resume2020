@@ -203,21 +203,21 @@ class SearchTab extends Component {
     }
 
     render() {
+        const list = ["Github", "Linkedin", "Bottega", "Netlify", "React", "NodeJS", "Python", "Javascript"]
         
         
         return ( 
            <div className="SearchTab">
-                <div className="content-wrapper" style ={{ display: "grid", justifyContent: "center", alignContent: "center", marginTop: "3.5em", color: "white", backgroundImage: "https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg?cs=srgb&dl=photo-of-person-typing-on-computer-keyboard-735911.jpg&fm=jpg"}} >
-               <i style={{marginBottom: "1em"}} class="fab fa-monero"></i>                
+                <div className="content-wrapper" style ={{ display: "grid", justifyContent: "center", alignContent: "center", color: "white", backgroundImage: "https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg?cs=srgb&dl=photo-of-person-typing-on-computer-keyboard-735911.jpg&fm=jpg"}} >            
                 <div className="main-title display-4" style={{marginBottom: "1em"}}>Hi... I'm Marquis Gaston!</div>
                 {/* <p style={{marginBottom: "2em"}} class="lead">I'm your next Full-Stack/Front-End/Back-End Developer based out of NW Ohio/Toledo</p> */}
                 
                 <h3>Try typing a keyword to see what I can do for you!</h3>
                 <Carousel className="skill-carousel" style={{margin: ".5em 0"}}>
-                    {this.props.resumeData.resumeItems.map(item => {
+                    {list.map(item => {
                         return (
                             <Carousel.Item key={item}>
-                                {item.title}
+                                {item}
                             </Carousel.Item>
                         )
                     })}
@@ -229,8 +229,7 @@ class SearchTab extends Component {
                 <div className="quick-search-wrapper">
                     {this.renderQuickSearch()}
                 </div>
-                <p style={{fontSize: ".6em"}}>Or...</p>
-                <p style={{fontSize: ".6em"}}>Scroll down to learn more About Me...</p>
+                
                 <i class="fas fa-chevron-down"></i>
             </div>
            </div>
