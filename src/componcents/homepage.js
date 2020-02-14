@@ -17,7 +17,6 @@ class Homepage extends Component {
             <div className="homepage">
                 <Hometabs/>
                 <OtherTabs/>
-
             </div>
          );
     }

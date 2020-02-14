@@ -10,6 +10,7 @@ import Box from '@material-ui/core/Box';
 import SearchTab from './searchTab';
 
 import '../variables.scss';
+import Profile from './profile';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -60,14 +61,14 @@ export default function Hometabs() {
     <div className={`${classes.root} hometabs`} style={{minHeight: "90vh", backgroundColor: "#282c34"}}>
       <AppBar position="static" style={{backgroundColor: "#282c60", padding: "0 1em"}}>
         <Tabs value={value} onChange={handleChange} indicatorColor="primary" aria-label="simple tabs example">
-          <Tab label="Featured" {...a11yProps(0)} />
-          <Tab label="Search" {...a11yProps(1)} />
+          <Tab label="Home" {...a11yProps(0)} />
+          <Tab label="Featured" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}>
-       
-      </TabPanel>
       <TabPanel value={value} index={1}>
+       <Profile/>
+      </TabPanel>
+      <TabPanel value={value} index={0}>
         <SearchTab/>
       </TabPanel>
     </div>
